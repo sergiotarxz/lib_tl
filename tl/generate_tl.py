@@ -420,7 +420,7 @@ def readAndGenerate(inputFiles, outputPath, scheme):
     countTypeId = re.sub(r'^0x|L$', '', hex(countTypeId))
     if (typeid and len(typeid) > 0):
       typeid = typeid
-      if (typeid != countTypeId and !re.match(r'endtoend', line):
+      if (typeid != countTypeId and not re.match(r'endtoend', line)):
           key = originalname + '#' + typeid
           if (not key in typeIdExceptions):
             print('Warning: counted ' + countTypeId + ' mismatch with provided ' + typeid + ' (' + key + ', ' + cleanline + ')')
